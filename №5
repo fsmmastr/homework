@@ -1,0 +1,16 @@
+#1.5 Factorial's zeros
+def factorial(n):
+    result=1
+    for i in range(1,n+1):
+        result*=i
+    return result
+def zeros(n):
+    cnt=0
+    while n>=5:
+        n//=5
+        cnt+=n
+    return cnt
+n=int(int(input()))
+a=factorial(n)
+b=zeros(n)
+print(a,b)
