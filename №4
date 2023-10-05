@@ -1,0 +1,27 @@
+ #1.4 Intersection of sets (intersect)
+def intersect(A,B):
+    result = A & B
+    inter_list=[]
+    for i in range(32):
+        if result & (1 << i):
+            inter_list.append(i)
+    return sorted(inter_list)
+A=int(input())
+B=int(input())
+resultt=intersect(A,B)
+all_list=[]
+while A!=0:
+
+     all_list.append(A%10)
+     A//=10
+
+print(resultt)
+print(all_list)
+
+
+for j in range (0,len(resultt)):
+    if resultt[j]  in all_list:
+        all_list.remove((resultt[j]))
+    else:
+        continue
+print(set(all_list))
