@@ -1,0 +1,14 @@
+#1.2 Product of numbers modulo (mulmod)
+def horner_modulo(a,b,m):
+    result=0
+    while b>0:
+        if b%2==1:
+            result=(result+a)%m
+        a=(a*2)%m
+        b//=2
+    return result
+a = int(input("Введите значение а: "))
+b = int(input("Введите значение b: "))
+m = int(input("Введите значение m: "))
+result = horner_modulo(a,b,m)
+print("Result: ", result)
