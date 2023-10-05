@@ -1,0 +1,10 @@
+#1.6 Josephus Flavius task
+def josephus_survivor(N,K):
+    position=0
+    for i in range(2,N+1):
+        position=(position+K)%i
+    return position
+N=int(input("Количество повстанцев: "))
+K=int(input("Введите шаг К: "))
+survivor_position=josephus_survivor(N,K)
+print("Позиция выжившего: ", survivor_position)
