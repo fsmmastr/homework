@@ -1,0 +1,28 @@
+def saddlepoint(matrix):
+    rows = len(matrix)
+    cols=len(matrix[0])
+    for i in range(rows):
+        for j in range(cols):
+            element = matrix[i][j]
+            #Провекра: наибольший ли элемент в своей строке
+            is_largest=True
+            for k in range(cols):
+                if matrix[i][k]>element:
+                    is_largest=False
+                    break
+            # Провекра: наименьший ли элемент в своем столбце
+            is_smallest=True
+            for k in range(rows):
+                if matrix[k][j]<element:
+                    is_smallest=False
+                    break
+            if is_smallest and is_largest:
+                return i, j
+    return None
+rows,cols=map(int,input().split())
+matrix=[]
+for _ in range(rows):
+    row = list(map(int,input().split()))
+    matrix.append(row)
+result=saddlepoint(matrix)
+print(result)
