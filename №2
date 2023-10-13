@@ -1,0 +1,24 @@
+#2.2 Greatest prime divisor (primediv).
+import array
+def primediv(x):
+    #Создаем массив с числами от 0 до х
+    nums=array.array('b', [True]*(x+1))
+    #Массив, содержащий простые числа
+    prost=[]
+    #Используем решето Эратосфена для поиска простых чисел
+    p=2
+    while p*p <= x:
+        #если p не отмечено, то p - простое число
+        if nums[p]:
+            prost.append(p)
+            #отмечаем все числа кратные p
+            for i in range(p*p, x+1, p):
+                nums[i]=False
+        p+=1
+
+    #Поиск наибольшего простого делителя числа x
+    largest_prost=max(prost)
+    return largest_prost
+x=int(input('Введите число x: '))
+result=primediv(x)
+print('Наибольший простой делитель числа x: ', result)
