@@ -1,0 +1,23 @@
+class House():
+    """ описание дома """
+    def __init__(self, street, number):
+        self.street=street
+        self.number=number
+        self.year=2023
+    def age_of_house(self, age):
+        """ год, в котором появился дом """
+        self.year-=age
+    def build(self):
+        """ строим дом """
+        print("Дом на улице " + self.street + " под номером " + str(self.number) + " был построен в " + str(self.year) + " году.")
+
+House1=House('Авиамоторная', 11)
+House1.age_of_house(7)
+
+House2=House('Бауманская', 13)
+House2.age_of_house(4)
+
+print(House1.street) #'Авиамоторная'
+print(House2.number)#'13'
+print(House1.year)#'2016'
+print(House2.year)#'2019'
