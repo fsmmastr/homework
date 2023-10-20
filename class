@@ -16,8 +16,16 @@ House1.age_of_house(7)
 
 House2=House('Бауманская', 13)
 House2.age_of_house(4)
+class Skyscraper(House):
+    "небоскреб"
+    def __init__(self, number, level):
+        super().__init__(self,number)
+        self.level=level
 
+Skyscraper1=Skyscraper(12, 80)
 print(House1.street) #'Авиамоторная'
 print(House2.number)#'13'
 print(House1.year)#'2016'
 print(House2.year)#'2019'
+print(Skyscraper1.number)#'12'
+print(Skyscraper1.level)#'80'
