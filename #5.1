@@ -1,0 +1,29 @@
+#5.1. Binary search.
+from array import array
+def find(arry, k):
+    left = 0
+    right = len(arry)-1
+    index=-1
+    while left<=right:
+        mid=(left+right)//2
+
+        if arry[mid]==k:
+            index=mid
+            right=mid-1 #продолжаем искать index в левой части массива
+        elif arry[mid]<k:
+            if arry[0]<arry[-1]: #определям тип сортировки массива
+                left = mid+1
+            else:
+                right = mid-1
+        else:
+            if arry[0] < arry[-1]:  # определям тип сортировки массива
+                right = mid - 1
+            else:
+                left=mid + 1
+    return index
+n=int(input('Введите размер массива (0<n<=10): '))
+arr=[]
+for i in range(n):
+    arr.append(int(input('Введите {} элемент массива: '.format(i))))
+k=int(input('Введите k: '))
+print(find(arr,k))
