@@ -1,0 +1,34 @@
+#5.3 Sums forming powers of two (power2). 
+def calculate_combinations(n, posled):
+    # Создаем словарь для хранения количества комбинаций для каждой суммы
+    combinations = {0: 1}  # Начальная сумма 0 имеет одну комбинацию - пустую комбинацию
+
+    for num in posled:
+        # Создаем временный словарь для хранения обновленных значений
+        temp_combinations = dict(combinations)
+
+        # Обновляем словарь с учетом текущего числа
+        for key, value in combinations.items():
+            new_sum = key + num
+            if new_sum in temp_combinations:
+                temp_combinations[new_sum] += value
+            else:
+                temp_combinations[new_sum] = value
+
+        # Обновляем словарь комбинаций
+        combinations = temp_combinations
+
+    # Возвращаем количество комбинаций, равное степени числа n
+    return combinations[n]
+
+
+n = int(input("Введите число n: "))
+
+posled = []
+for i in range(n):
+    num = float(input("Введите число из последовательности: "))
+    posled.append(num)
+
+# Вывод количества комбинаций
+result = calculate_combinations(n, posled)
+print("Количество комбинаций:", result)
