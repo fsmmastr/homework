@@ -1,0 +1,26 @@
+#5.2 
+def shortest_string(n, strings):
+    # создаем переменную для хранения самой короткой строки
+    shortest_string = ''
+
+    # перебираем все строки
+    for string in strings:
+        # проверяем, является ли текущая строка подстрокой самой короткой строки
+        if string not in shortest_string:
+            # если не является, то добавляем текущую строку в самую короткую строку
+            shortest_string += string
+
+    # возвращаем длину самой короткой строки
+    return len(shortest_string)
+
+
+# считываем число n
+n = int(input())
+
+# считываем n строк и сохраняем их в списке
+strings = []
+for _ in range(n):
+    strings.append(input())
+
+# вызываем функцию shortest_containing_string и выводим результат
+print(shortest_string(n, strings))
