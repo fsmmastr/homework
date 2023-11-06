@@ -1,15 +1,18 @@
 #1.5 Factorial's zeros
-def factorial(n):
+def factorial(n): #функция для вычисления факториала
     result=1
     for i in range(1,n+1):
         result*=i
     return result
-def zeros(n):
+def zeros(n): #функция для вычисления нулей факториала
     cnt=0
-    while n>=5:
-        n//=5
-        cnt+=n
+    i = 5
+    while n // i >= 1:
+        cnt += n // i
+        i *= 5
     return cnt
+
+
 n=int(int(input()))
 a=factorial(n)
 b=zeros(n)
