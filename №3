@@ -1,16 +1,16 @@
 #1.3 Fibonacci number system (fibsys)
-def fibsys(x):
-    fib_sequence=[1,2]
-    fib_notation=[]
-    while fib_sequence[-1]<=x:
+def fibsys(a):
+    fib_sequence=[0,1] #последовательность Фибоначчи
+    fib_notation=[] #список, содержащий Фибоначчи-нотации числа a
+    while fib_sequence[-1]<=a: #создание списка Фибоначчи для достижения a
         fib_sequence.append(fib_sequence[-1]+fib_sequence[-2])
     for fib_number in reversed(fib_sequence):
-        if x>=fib_number:
+        if a>=fib_number:
             fib_notation.append(1)
-            x-=fib_number
+            a-=fib_number
         else:
             fib_notation.append(0)
     return fib_notation
-x=int(input("Введите число х: "))
-fibonacci_notation=fibsys(x)
-print(f"Последовательность Фибоначчи для числа {x} равна: ", fibonacci_notation)
+a=int(input("Введите число a: "))
+fibonacci_notation=fibsys(a)
+print("Последовательность Фибоначчи для числа a равна: ", fibonacci_notation)
