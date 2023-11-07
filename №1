@@ -1,5 +1,5 @@
 #2.1 Maximum sum of consecutive array elements (maxk).
-def find_max_summ(arr, k):
+def maxk(arr, k):
     n=len(arr)
     if k>n:
         return None
@@ -9,7 +9,7 @@ def find_max_summ(arr, k):
     #нахождение суммы последующих k элементов массива
     for i in range(k, n):
         summ=summ-arr[i-k] + arr[i]
-        max_summ=max(max_summ, summ)
+        max_summ=max(max_summ, summ)`   
     return max_summ
 n = int(input('Введите размер массива: '))
 arr=[]
@@ -17,7 +17,7 @@ for i in range(n):
     arr.append(int(input('Введите элемент массива: ')))
 k=int(input('Введите число k: '))
 #Вызываем функцию
-max_summ=find_max_summ(arr,k)
+max_summ=maxk(arr,k)
 if max_summ is None:
     print('ERROR, k больше длинны массива')
 else:
