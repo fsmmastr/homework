@@ -1,18 +1,31 @@
  #1.4 Intersection of sets (intersect)
+A = str(1 * 10**32)
+B = str(1 * 10**32)
+sizeA = int(input("Size of A: "))
+sizeB = int(input("Size of B: "))
+cntA = 0
+cntB = 0
+for i in range(32):
+    while cntA < sizeA:
+        num = int(input("x in A: "))
+        A = str(int(A) + 10 ** num)
+        cntA+=1
+for i in range(32):
+    while cntB < sizeB:
+        num = int(input("x in B: "))
+        B = str(int(B) + 10**num)
+        cntB+=1
+print(A)
+print(B)
 def intersect(A, B):
-    intersection = A & B  # Пересечение множеств
-    result = []
-
-    # Поиск элементов в пересечении и добавление их в результат
+    result=[]
     for i in range(32):
-        if intersection & (1 << i):  # Проверка i-го бита на принадлежность пересечению
+        if (A[32 - i] == B[32 - i] == '1'):
             result.append(i)
-
     return result
+# Множество A: {0, 2, 4}
+# Множество B: {0, 1, 2, 4, 5}
 
-A = int(input("Введите множество A в виде 32-битного числа: "))
-B = int(input("Введите множество B в виде 32-битного числа: "))
-
-intersection = intersect(A, B)
-print("Элементы множества A пересекаются с элементами множества B:", intersection)
-
+expected_result = [0, 2, 4]
+assert intersect(A, B) == expected_result
+print(intersect(A, B))
