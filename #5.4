@@ -1,0 +1,20 @@
+from typing import Callable
+
+def bubblesort(nel: int, compare: Callable[[int, int], int], swap: Callable[[int, int], None]) -> None:
+    # Функция для двунаправленной сортировки пузырьком
+    for i in range(nel // 2):
+        # Проходим по половине массива
+        swapped = False
+        for j in range(i, nel - 1 - i):
+            # Проход слева направо
+            if compare(j, j + 1) == 1:
+                swap(j, j + 1)
+                swapped = True
+        for j in range(nel - 2 - i, i, -1):
+            # Проход справа налево
+            if compare(j, j - 1) == -1:
+                swap(j, j - 1)
+                swapped = True
+        if not swapped:
+            # Если на этой итерации не было обменов, массив уже отсортирован
+            break
