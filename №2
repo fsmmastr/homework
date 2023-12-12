@@ -1,21 +1,23 @@
-#2.2 Greatest prime divisor (primediv).
+# 2.2 Greatest prime divisor (primediv).
 def sieve_of_eratosthenes(n):
     # Функция решета Эратосфена для поиска простых чисел до n
     primes = [True] * (n + 1)  # Создаем список простых чисел размером (n+1) и заполняем его значениями True
-    primes[0], primes[1] = False, False  # Присваиваем значения False для 0 и 1, так как они не являются простыми числами
+    primes[0], primes[
+        1] = False, False  # Присваиваем значения False для 0 и 1, так как они не являются простыми числами
     p = 2
-    while p**2 <= n:
+    while p ** 2 <= n:
         if primes[p] == True:  # Если p является простым числом
-            for i in range(p**2, n+1, p):
+            for i in range(p ** 2, n + 1, p):
                 primes[i] = False  # Присваиваем False элементам, которые являются кратными p
         p += 1
-    return [i for i in range(n+1) if primes[i]]  # Возвращаем список всех простых чисел от 0 до n
+    return [i for i in range(n + 1) if primes[i]]  # Возвращаем список всех простых чисел от 0 до n
+
 
 def primediv(x):
     # Функция для нахождения наибольшего простого делителя числа x
     if x < 0:
         x = abs(x)
-    primes = sieve_of_eratosthenes(int(x**0.5) + 1)  # Создаем список простых чисел до sqrt(x)
+    primes = sieve_of_eratosthenes(int(x ** 0.5) + 1)  # Создаем список простых чисел до sqrt(x)
     max_prime = 2
     for prime in primes:  # Проходим по всем простым числам из списка
         while x % prime == 0:
@@ -23,8 +25,18 @@ def primediv(x):
             x = x / prime
     return max_prime
 
+def is_prime(number):
+    if number < 2:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
 
 x = int(input("Введите число x: "))
-
-result = primediv(x)
-print("Наибольший простой делитель числа", x, ":", result)
+if is_prime(x):
+    print(x, 'является простым числом')
+if not is_prime(x):
+    result = primediv(x)
+    print("Наибольший простой делитель числа", x, ":", result)
