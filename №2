@@ -25,3 +25,6 @@ def primediv(x):
 
 
 x = int(input("Введите число x: "))
+
+result = primediv(x)
+print("Наибольший простой делитель числа", x, ":", result)
